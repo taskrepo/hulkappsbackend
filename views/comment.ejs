@@ -92,6 +92,7 @@
             <div class="col-md-12">
               <h5>Leave a Comment</h5>
               <form action="/post/<%= post._id %>/comment" method="post">
+                <input type="hidden" name="currentIndex" value="<%= currentIndex %>">
                 <div class="form-group">
                   <textarea name="content" class="form-control" required></textarea>
                 </div>

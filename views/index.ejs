@@ -61,8 +61,8 @@
             <% posts.forEach(post => { %>
                 <div class="col-md-4 my-3">
                   <div class="card">
-                    <div class="card-body" onclick="window.location.href='/post/<%= post._id %>'">
-                    <h5 class="card-title"><%= post.title %></h5>
+                    <div class="card-body" onclick="window.location.href='/post/<%= post._id %>?currentIndex=<%= posts.indexOf(post) %>'">
+                        <h5 class="card-title"><%= post.title %></h5>
                       <p class="card-text">Author: <%= post.author.username %></p>
                       <p class="card-text">Date: <%= post.date %></p>
                       <% if (username == post.author.username) { %>

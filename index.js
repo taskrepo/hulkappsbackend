@@ -170,25 +170,27 @@ app.get("/edit/:id", checkAuthenticated, async (req, res) => {
   }
 });
 
-  // CREATE A NEW COMMENT FOR A POST
-  app.post("/post/:id/comment", checkAuthenticated, async (req, res) => {
-    try {
-      const post = await Post.findById(req.params.id);
-      const comment = new Comments({
-        content: req.body.content,
-        author: req.user._id,
-        post: post._id
-      });
-      await comment.save();
-      post.comments.push(comment._id);
-      await post.save();
-      res.redirect(`/post/${post._id}`);
-    } catch (error) {
-      console.log(error);
-      res.redirect("/");
-    }
-  });
-  
+ // CREATE A NEW COMMENT FOR A POST
+app.post("/post/:id/comment", checkAuthenticated, async (req, res) => {
+  try {
+    const post = await Post.findById(req.params.id);
+    const comment = new Comments({
+      content: req.body.content,
+      author: req.user._id,
+      post: post._id
+    });
+    await comment.save();
+    post.comments.push(comment._id);
+    await post.save();
+
+    const currentIndex = req.body.currentIndex ? parseInt(req.body.currentIndex) : 0;
+    res.redirect(`/post/${post._id}?currentIndex=${currentIndex}`);
+  } catch (error) {
+    console.log(error);
+    res.redirect("/");
+  }
+});
+
 // Functions to check if user is authenticated
 function checkAuthenticated(req, res, next){
     if(req.isAuthenticated()){
