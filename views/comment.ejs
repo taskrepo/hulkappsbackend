@@ -53,7 +53,7 @@
                   <h5 class="card-title"><p>Title : <%= post.title %></h5>
                   <p class="card-text">Description: <%= post.description %></p>
                   <p class="card-text">Author: <%= post.author.username %></p>
-                  <p class="card-text">Date: <%= post.date %></p>
+                  <p class="card-text">Date: <%= new Date(post.date).toLocaleDateString("default", { day: "2-digit", month: "2-digit", year: "2-digit" }).replace(/\//g, ".") %>
                 </div>
               </div>
             </div>
@@ -73,15 +73,19 @@
               </nav>
             </div>
           </div>
-        
+
           <div class="row my-5">
             <div class="col-md-12">
               <h5>Comments</h5>
+              <% if (comments.length=== 0) { %>
+                <p>No comments yet</p>
+              <% }; %>
               <% comments.forEach(comment => { %>
                 <div class="card my-3">
                   <div class="card-body">
                         <p class="card-text"><b>Username:</b> <%= username %></p>
                         <p class="card-text"><b>Comment: </b><%= comment.content %></p>
+                        <p class="card-text">Comment Added : <%= new Date(post.date).toLocaleDateString("default", { day: "2-digit", month: "2-digit", year: "2-digit" }).replace(/\//g, ".") %>
                   </div>
                 </div>
               <% }); %>

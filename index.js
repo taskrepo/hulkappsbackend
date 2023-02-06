@@ -132,10 +132,10 @@ app.get("/edit/:id", checkAuthenticated, async (req, res) => {
     if (req.user._id.toString() !== post.author.toString()) {
       return res.redirect("/");
     }
-    res.render("index.ejs", { post });
+    res.render("index.ejs", { post, username });
   });
   
-  app.put("/edit/:id", checkAuthenticated, async (req, res) => {
+  app.post("/edit/:id", checkAuthenticated, async (req, res) => {
     const post = await Post.findById(req.params.id);
     if (req.user._id.toString() !== post.author.toString()) {
       return res.redirect("/");
@@ -152,9 +152,11 @@ app.get("/edit/:id", checkAuthenticated, async (req, res) => {
     if (req.user._id.toString() !== post.author.toString()) {
       return res.redirect("/");
     }
+    const comments = await Comments.find({ post: req.params.id });
     await post.remove();
     res.redirect("/");
   });
+  
 
  // GET POST BY ID WITH ASSOCIATED COMMENTS
  app.get("/post/:id", checkAuthenticated, async (req, res) => {
