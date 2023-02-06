@@ -19,6 +19,7 @@
 <!-- Table of Contents -->
 # :notebook_with_decorative_cover: Table of Contents
 
+- [How I approached this problem](#notebook_with_decorative_cover-how-i-approached-this-problem)
 - [Environment Variables](#key-environment-variables)
  - [Getting Started](#toolbox-getting-started)
     * [Prerequisites](#bangbang-prerequisites)
@@ -26,6 +27,17 @@
     * [Features](#dart-features)
     * [Color Reference](#art-color-reference)
 - [Roadmap](#compass-roadmap)
+
+
+# :notebook_with_decorative_cover:  How I approached this problem:
+
+I approached the project with a combination of enthusiasm and focus. As a full-stack developer, I was excited to tackle the challenge of creating a backend and frontend application with a range of functionalities such as user registration, login, logout, post creation, commenting, pagination, and post editing and deletion.
+
+I particularly enjoyed the process of bringing the various components together and watching the project come to life. One aspect I appreciated was the opportunity to apply my skills and knowledge to create a user-friendly and seamless experience for the end-user.
+
+However, I did face some challenges along the way, particularly in ensuring the smooth integration of the frontend and backend. I was able to overcome these challenges through effective troubleshooting and by seeking guidance from more experienced colleagues when necessary.
+
+In total, I estimate that the completion of the project took approximately 20 hours, spread out over several days. Despite the time constraints, I am proud of the end result and the opportunity to demonstrate my passion for software development.
 
 <!-- Env Variables -->
 ### :key: Environment Variables
